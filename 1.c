@@ -1,56 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*
-1/1 ->2|1
-1/2 2/1 ->3|2
-3/1 2/2 1/3 ->4|3
-1/4 2/3 3/2 4/1 ->5|4
-5/1 4/2 3/3 2/4 1/5 ->6|5
-     2번째	
 
-10=0--->4/1
-11=1
-12=2=1+2+3+4
-13=1+2+3+4+5=-2--->3/3
-
-14=1+2+3+4+5=-1--->2/4
-
-12/1
-11/2
-9/3
-6/4
-2/5--->2번째분수
-
-14/1
-13/2
-11/3
-8/4
-4/5--->4번째분수
-*/
 int main()
 {
-	int i=1;
-	int sum,input,answer;
+	int num,distance,a,b,share,answer;
+	
+	scanf("%d", &num);
 
-	scanf("%d", &input);
-
-	while (1)
+	while (num)
 	{
-		input = input - i;
-		i++;
-		if (input <= i)
+		scanf("%d %d", &a, &b);
+		if (b < a)
+		{
+			break;
+		}
+		distance = b - a;
+		share = distance / 2;
+		//0에서 시작
+		if (distance == 1)
+		{
+			answer = 1;
+		}
+		//distance가 짝수..짝짝,홀홀로 들어오는 경우
+		else if (distance % 2 == 0)
+		{
+			if (a = 0)
+			{
+				answer = share + 2;
+			}
+			answer = share + 1;
+		}
+		else
+		{
+			answer = share + 2;
+		}
+		printf("%d\n", answer);
+		num--;
+		if (num == 0)
 			break;
 	}
-	//i는 층의 위치,input은 층 내 분수 위치
-	sum = i + 1;//분수합..6이라하면...i는5
 
-	if (i % 2 == 0)//짝수층이면
-	{
-		printf("%d/%d", input,sum-input);
-	}
-	else//홀수층이면
-	{
-		printf("%d/%d", sum-input,input);
-	}
-	
+
 }
